@@ -1,3 +1,11 @@
+import requests
+from bs4 import BeautifulSoup
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtCore import QUrl
+from PyQt5.QtWebEngineWidgets import QWebEnginePage
+import sys
+import bs4 as bs
+import urllib.request
 def dataretriver():
     import requests
     res=requests.get('https://en.wikipedia.org/wiki/List_of_international_airports_by_country')
@@ -26,18 +34,9 @@ def dataretriver():
             s+='\n'
             fp.write(s)
     fp.close()
-        
-import requests
-from bs4 import BeautifulSoup
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtCore import QUrl
-from PyQt5.QtWebEngineWidgets import QWebEnginePage
-import sys
-import bs4 as bs
-import urllib.request
+"""Driver Code"""  
 codes=dict()
 f=open("datamod.csv",'r',encoding="utf-8")
-
 lis = [line.split(',') for line in f]        
 for i,x in enumerate(lis):
     codes[x[0].lower()]=x[-1][:-1]
@@ -54,8 +53,6 @@ if status:
     print(' '*50+'Loading....')
     main=codes[src]+'-'+codes[dest]
     url="https://www.goibibo.com/flights/air-"+main+"-"+yy+mm+dd+"--1-0-0-E-D/"
-    
-
     class Client(QWebEnginePage):
         def __init__(self,url):
             global app
