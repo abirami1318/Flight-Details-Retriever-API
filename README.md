@@ -11,3 +11,7 @@ Retrieve the details of the available flights for the given source to destinatio
     4) Enter python flight_scrap.py
     
     5) Then enter the Souce, Destination and Date in specified format
+## Sample Data
+    Enter Source City:Mumbai
+    Enter Destination City:Delhi
+    Enter the Date in DD/MM/YYYY:14/07/2020
